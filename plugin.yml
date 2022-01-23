@@ -1,0 +1,6 @@
+---
+name: EmoteCommands
+version: 0.0.1
+main: DiamondStrider1\EmoteCommands\Loader
+api: 4.0.0
+...
