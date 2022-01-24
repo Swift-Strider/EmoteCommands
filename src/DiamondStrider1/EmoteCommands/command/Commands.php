@@ -15,6 +15,7 @@ final class Commands
         $cm->registerAll("emotecommands", [
             new MakeEmoteCommand("makeemotecommand"),
             new RemoveEmoteCommand("removeemotecommand"),
+            new EditEmoteCommand("editemotecommand"),
         ]);
     }
 }

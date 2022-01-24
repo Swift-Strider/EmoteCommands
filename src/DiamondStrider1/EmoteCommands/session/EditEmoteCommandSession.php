@@ -24,6 +24,7 @@ class EditEmoteCommandSession implements Listener
         private ?string $emoteId = null,
         /** @var array<string> */
         private array $commands = [],
+        private ?EmoteCommandEntry $editing = null,
     ) {
         $this->plugin = Loader::getInstance();
     }
@@ -67,7 +68,11 @@ class EditEmoteCommandSession implements Listener
                     $this->player->sendMessage("Register a command by running it, first!");
                     break;
                 }
-                $this->plugin->getInstance()->getEmotesConfig()->setEntry(new EmoteCommandEntry(
+                $conf = $this->plugin->getInstance()->getEmotesConfig();
+                if ($this->editing !== null) {
+                    $conf->removeEntry($this->editing->getName());
+                }
+                $conf->setEntry(new EmoteCommandEntry(
                     $this->emoteCommandName,
                     $this->emoteId,
                     $this->commands
