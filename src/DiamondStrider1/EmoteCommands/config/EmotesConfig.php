@@ -37,8 +37,8 @@ class EmotesConfig
         return array_values($this->entries);
     }
 
-    public function getEntryByEmoteId(string $emoteId): EmoteCommandEntry
+    public function getEntryByEmoteId(string $emoteId): ?EmoteCommandEntry
     {
-        return $this->entries[$emoteId];
+        return $this->entries[$emoteId] ?? null;
     }
 }
