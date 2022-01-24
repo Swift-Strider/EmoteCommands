@@ -45,6 +45,9 @@ class EditEmoteCommandSession implements Listener
         $this->player->sendMessage("-------");
     }
 
+    /**
+     * @priority LOWEST
+     */
     public function onPlayerChat(PlayerChatEvent $ev): void
     {
         if ($ev->getPlayer() !== $this->player) return;
@@ -83,6 +86,9 @@ class EditEmoteCommandSession implements Listener
         }
     }
 
+    /**
+     * @priority LOWEST
+     */
     public function onPlayerEmote(PlayerEmoteEvent $ev): void
     {
         if ($ev->getPlayer() !== $this->player) return;
