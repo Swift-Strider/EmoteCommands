@@ -3,4 +3,15 @@ name: EmoteCommands
 version: 0.0.1
 main: DiamondStrider1\EmoteCommands\Loader
 api: 4.0.0
+
+permission:
+  emotecommands.admin:
+    default: op
+    description: Manage EmoteCommands Plugin
+  emotecommands.admin.create:
+    default: op
+    description: Create new EmoteCommands
+  emotecommands.admin.remove:
+    default: op
+    description: Remove existing EmoteCommands
 ...
