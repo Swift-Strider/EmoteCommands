@@ -15,7 +15,7 @@ class RemoveEmoteCommand extends Command implements PluginOwned
     public function __construct(string $name)
     {
         parent::__construct($name, "Removes an existing emote-command from the server", "<name>");
-        $this->setPermission("emotecommands.admin.create");
+        $this->setPermission("emotecommands.admin.remove");
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
