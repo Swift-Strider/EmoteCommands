@@ -39,6 +39,9 @@ class EditEmoteCommandSession implements Listener
     {
         $this->player->sendMessage("-------");
         $this->player->sendMessage("Say `done` to finnish");
+        $this->player->sendMessage("Say `list` to list commands");
+        $this->player->sendMessage("Say `remove` to remove the last command");
+        $this->player->sendMessage("Say `remove <index>` to remove the command at that index");
         $this->player->sendMessage("Say `cancel` to quit");
         $this->player->sendMessage("Prefix a command with a `#/` to add it");
         $this->player->sendMessage("Perform and emote to register it to the EmoteCommand");
@@ -52,7 +55,8 @@ class EditEmoteCommandSession implements Listener
     {
         if ($ev->getPlayer() !== $this->player) return;
         $ev->cancel();
-        $cmd = $ev->getMessage();
+        $args = explode(" ", $ev->getMessage());
+        $cmd = array_shift($args);
         switch ($cmd) {
             case "done":
                 if ($this->emoteId === null) {
@@ -74,6 +78,21 @@ class EditEmoteCommandSession implements Listener
             case "cancel":
                 HandlerListManager::global()->unregisterAll($this);
                 $this->player->sendMessage("Canceled EmoteCommand Creation");
+                break;
+            case "list":
+                $this->player->sendMessage("Configured commands so far are:");
+                foreach ($this->commands as $index => $cmd) {
+                    $this->player->sendMessage("$index:  /$cmd");
+                }
+                break;
+            case "remove":
+                $id = array_shift($args) ?? count($this->commands) - 1;
+                $cmd = $this->commands[$id];
+
+                unset($this->commands[$id]);
+                $this->commands = array_values($this->commands);
+
+                $this->player->sendMessage("Removed Command \"$cmd\"");
                 break;
             default:
                 if (str_starts_with($cmd, "#/")) {
