@@ -32,6 +32,7 @@ class Loader extends PluginBase
         if (!$this->emotesConfig->tryLoad()) {
             $this->getLogger()->emergency("emote-command.yml is corrupted ... shutting down!");
             $this->getServer()->getPluginManager()->disablePlugin($this);
+            return;
         }
 
         $this->eventListener = new EventListener($this);
