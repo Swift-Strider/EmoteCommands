@@ -31,6 +31,18 @@ class EmoteCommandEntry
         return new self($name, $emoteId, $commands);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
+    public function toRawData(): array
+    {
+        return [
+            "name" => $this->name,
+            "emote-id" => $this->emoteId,
+            "commands" => $this->commands,
+        ];
+    }
+
     public function __construct(
         private string $name,
         private string $emoteId,

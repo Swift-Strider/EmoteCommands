@@ -12,14 +12,13 @@ class EmotesConfig
     private array $entries = [];
 
     public function __construct(
-        /** @var array<mixed> */
-        private array $data,
+        private Config $config,
     ) {
     }
 
     public function tryLoad(): bool
     {
-        foreach ($this->data as $entry) {
+        foreach ($this->config->getAll() as $entry) {
             if (
                 (!is_array($entry)) ||
                 ($parsed = EmoteCommandEntry::tryFromArray($entry)) === null
@@ -29,6 +28,16 @@ class EmotesConfig
             $this->entries[$parsed->getEmoteId()] = $parsed;
         }
         return true;
+    }
+
+    private function save(): void
+    {
+        $data = [];
+        foreach ($this->entries as $entry) {
+            $data[$entry->getEmoteId()] = $entry->toRawData();
+        }
+        $this->config->setAll($data);
+        $this->config->save();
     }
 
     /** @return array<EmoteCommandEntry> */
@@ -46,6 +55,7 @@ class EmotesConfig
     {
         $this->removeEntry($entry->getName());
         $this->entries[$entry->getEmoteId()] = $entry;
+        $this->save();
     }
 
     public function removeEntry(string $name): bool

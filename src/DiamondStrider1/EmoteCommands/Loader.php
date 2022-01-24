@@ -29,7 +29,7 @@ class Loader extends PluginBase
 
     public function onEnable(): void
     {
-        $this->emotesConfig = new EmotesConfig((new Config($this->getDataFolder() . "emote-commands.yml"))->getAll());
+        $this->emotesConfig = new EmotesConfig(new Config($this->getDataFolder() . "emote-commands.yml"));
         if (!$this->emotesConfig->tryLoad()) {
             $this->getLogger()->emergency("emote-command.yml is corrupted ... shutting down!");
             $this->getServer()->getPluginManager()->disablePlugin($this);
@@ -42,7 +42,8 @@ class Loader extends PluginBase
         Commands::registerAll();
     }
 
-    public function getEmotesConfig(): EmotesConfig {
+    public function getEmotesConfig(): EmotesConfig
+    {
         return $this->emotesConfig;
     }
 }
