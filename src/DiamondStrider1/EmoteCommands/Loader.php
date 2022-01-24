@@ -32,4 +32,8 @@ class Loader extends PluginBase
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
     }
+
+    public function getEmotesConfig(): EmotesConfig {
+        return $this->emotesConfig;
+    }
 }
