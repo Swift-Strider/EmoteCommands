@@ -1,6 +1,6 @@
 ---
 name: EmoteCommands
-version: 0.0.1
+version: 1.0.0
 main: DiamondStrider1\EmoteCommands\Loader
 api: 4.0.0
 
@@ -17,4 +17,3 @@ permissions:
   emotecommands.admin.remove:
     default: op
     description: Remove existing EmoteCommands
-...
