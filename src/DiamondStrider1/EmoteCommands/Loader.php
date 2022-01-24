@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DiamondStrider1\EmoteCommands;
 
+use DiamondStrider1\EmoteCommands\command\Commands;
 use DiamondStrider1\EmoteCommands\config\EmotesConfig;
 use DiamondStrider1\EmoteCommands\event\EventListener;
 use pocketmine\plugin\PluginBase;
@@ -37,6 +38,8 @@ class Loader extends PluginBase
 
         $this->eventListener = new EventListener($this);
         $this->getServer()->getPluginManager()->registerEvents($this->eventListener, $this);
+
+        Commands::registerAll();
     }
 
     public function getEmotesConfig(): EmotesConfig {
