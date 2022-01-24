@@ -4,7 +4,7 @@ version: 0.0.1
 main: DiamondStrider1\EmoteCommands\Loader
 api: 4.0.0
 
-permission:
+permissions:
   emotecommands.admin:
     default: op
     description: Manage EmoteCommands Plugin
