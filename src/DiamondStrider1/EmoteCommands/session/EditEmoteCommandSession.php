@@ -89,6 +89,11 @@ class EditEmoteCommandSession implements Listener
                 $id = array_shift($args) ?? count($this->commands) - 1;
                 $cmd = $this->commands[$id];
 
+                if (!isset($this->commands[$id])) {
+                    $this->player->sendMessage("No Command to delete");
+                    break;
+                }
+
                 unset($this->commands[$id]);
                 $this->commands = array_values($this->commands);
 
