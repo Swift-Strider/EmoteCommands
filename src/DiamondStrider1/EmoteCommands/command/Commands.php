@@ -13,7 +13,8 @@ final class Commands
         $plugin = Loader::getInstance();
         $cm = $plugin->getServer()->getCommandMap();
         $cm->registerAll("emotecommands", [
-            new MakeEmoteCommand("makeemotecommand")
+            new MakeEmoteCommand("makeemotecommand"),
+            new RemoveEmoteCommand("removeemotecommand"),
         ]);
     }
 }
