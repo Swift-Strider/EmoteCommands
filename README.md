@@ -6,7 +6,10 @@
 
 # Usage
 
+An EmoteCommand is a list of commands and an emote that runs those commands. **Every emote may only have one EmoteCommand for it.**
+
 - `/makeemotecommand <name>` create new EmoteCommand with that `name`
+- `/editemotecommand <name>` edit EmoteCommand named `name`
 - `/removeemotecommand <name>` remove EmoteCommand named `name`
 
 # TODOs
