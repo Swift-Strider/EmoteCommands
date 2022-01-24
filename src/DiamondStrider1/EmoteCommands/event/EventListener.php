@@ -14,6 +14,10 @@ class EventListener implements Listener
         private Loader $plugin,
     ) {
     }
+
+    /**
+     * @priority HIGHEST
+     */
     public function onPlayerEmote(PlayerEmoteEvent $ev): void
     {
         $conf = $this->plugin->getEmotesConfig();
