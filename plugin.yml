@@ -3,6 +3,7 @@ name: EmoteCommands
 version: 1.0.0
 main: DiamondStrider1\EmoteCommands\Loader
 api: 4.0.0
+author: DiamondStrider1
 
 permissions:
   emotecommands.admin:
