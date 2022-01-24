@@ -41,4 +41,19 @@ class EmotesConfig
     {
         return $this->entries[$emoteId] ?? null;
     }
+
+    public function setEntry(EmoteCommandEntry $entry): void
+    {
+        $this->removeEntry($entry->getName());
+        $this->entries[$entry->getEmoteId()] = $entry;
+    }
+
+    public function removeEntry(string $name): void
+    {
+        foreach ($this->entries as $key => $entry) {
+            if ($entry->getName() === $name) {
+                unset($this->entries[$key]);
+            }
+        }
+    }
 }

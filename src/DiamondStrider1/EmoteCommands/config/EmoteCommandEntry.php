@@ -14,6 +14,8 @@ class EmoteCommandEntry
         if (
             ($emoteId = $data['emote-id'] ?? null) === null ||
             (!is_string($emoteId)) ||
+            ($name = $data['name'] ?? null) === null ||
+            (!is_string($name)) ||
             ($commands = $data['commands'] ?? null) === null ||
             (!is_array($commands))
         ) {
@@ -26,14 +28,20 @@ class EmoteCommandEntry
             }
         }
 
-        return new self($emoteId, $commands);
+        return new self($name, $emoteId, $commands);
     }
 
     public function __construct(
+        private string $name,
         private string $emoteId,
         /** @var array<string> */
         private array $commands,
     ) {
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     public function getEmoteId(): string
