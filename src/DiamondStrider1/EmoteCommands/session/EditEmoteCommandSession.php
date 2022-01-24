@@ -101,7 +101,7 @@ class EditEmoteCommandSession implements Listener
                 break;
             default:
                 if (str_starts_with($cmd, "#/")) {
-                    $cmd = substr($cmd, 2, strlen($cmd) - 2);
+                    $cmd = substr($cmd, 2, strlen($cmd) - 2) . " " . implode(" ", $args);
                     $this->commands[] = $cmd;
                     $this->player->sendMessage("Added Command `$cmd`");
                     break;
