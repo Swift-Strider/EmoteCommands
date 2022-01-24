@@ -11,6 +11,9 @@ permissions:
   emotecommands.admin.create:
     default: op
     description: Create new EmoteCommands
+  emotecommands.admin.edit:
+    default: op
+    description: Edit existing EmoteCommands
   emotecommands.admin.remove:
     default: op
     description: Remove existing EmoteCommands
