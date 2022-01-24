@@ -8,7 +8,7 @@ use DiamondStrider1\EmoteCommands\Loader;
 
 final class Commands
 {
-    public static function registerAll()
+    public static function registerAll(): void
     {
         $plugin = Loader::getInstance();
         $cm = $plugin->getServer()->getCommandMap();
