@@ -65,7 +65,7 @@ class EditEmoteCommandSession implements Listener
                     break;
                 }
                 if (count($this->commands) === 0) {
-                    $this->player->sendMessage("Register a command by running it, first!");
+                    $this->player->sendMessage("Register a command first!");
                     break;
                 }
                 $conf = $this->plugin->getInstance()->getEmotesConfig();
@@ -86,6 +86,9 @@ class EditEmoteCommandSession implements Listener
                 break;
             case "list":
                 $this->player->sendMessage("Configured commands so far are:");
+                if (count($this->commands) === 0) {
+                    $this->player->sendMessage("<none>");
+                }
                 foreach ($this->commands as $index => $cmd) {
                     $this->player->sendMessage("$index:  /$cmd");
                 }
@@ -106,7 +109,10 @@ class EditEmoteCommandSession implements Listener
                 break;
             default:
                 if (str_starts_with($cmd, "#/")) {
-                    $cmd = substr($cmd, 2, strlen($cmd) - 2) . " " . implode(" ", $args);
+                    $cmd = substr($cmd, 2, strlen($cmd) - 2);
+                    if (count($args) > 0) {
+                        $cmd .= " " . implode(" ", $args);
+                    }
                     $this->commands[] = $cmd;
                     $this->player->sendMessage("Added Command `$cmd`");
                     break;
