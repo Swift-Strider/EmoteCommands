@@ -72,12 +72,12 @@ class EditEmoteCommandSession implements Listener
                     $this->emoteId,
                     $this->commands
                 ));
-                $this->player->sendMessage("Created EmoteCommand \"" . $this->emoteCommandName . "\"");
+                $this->player->sendMessage("Finished Setting Up EmoteCommand \"" . $this->emoteCommandName . "\"");
                 HandlerListManager::global()->unregisterAll($this);
                 break;
             case "cancel":
                 HandlerListManager::global()->unregisterAll($this);
-                $this->player->sendMessage("Canceled EmoteCommand Creation");
+                $this->player->sendMessage("Canceled EmoteCommand Wizard");
                 break;
             case "list":
                 $this->player->sendMessage("Configured commands so far are:");
