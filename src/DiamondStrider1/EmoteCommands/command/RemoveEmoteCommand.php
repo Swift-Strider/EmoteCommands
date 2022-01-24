@@ -20,5 +20,16 @@ class RemoveEmoteCommand extends Command implements PluginOwned
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        if (($name = array_shift($args)) === null) {
+            $sender->sendMessage("Please provide the name of the EmoteCommand to remove.");
+            return;
+        }
+
+        $success = $this->getOwningPlugin()->getEmotesConfig()->removeEntry($name);
+        if ($success) {
+            $sender->sendMessage("Deleted EmoteCommand \"$name\"");
+        } else {
+            $sender->sendMessage("There is no EmoteCommand named \"$name\"");
+        }
     }
 }
