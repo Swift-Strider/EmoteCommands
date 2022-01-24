@@ -63,6 +63,7 @@ class EmotesConfig
         foreach ($this->entries as $key => $entry) {
             if ($entry->getName() === $name) {
                 unset($this->entries[$key]);
+                $this->save();
                 return true;
             }
         }
