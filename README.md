@@ -4,5 +4,5 @@
 
 # TODOs
 
-- [ ] Load commands to run from config file
+- [x] Load commands to run from config file
 - [ ] Create command to manage emote-commands
