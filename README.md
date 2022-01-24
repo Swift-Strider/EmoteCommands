@@ -1,5 +1,7 @@
 # The EmoteCommands Plugin
 
+![Plugin Icon](assets/icon.png)
+
 <div align="center"><strong><p>This Plugin runs commands when a player does a certain emote</p><p>You will need a pocketmine server of at least version 4.0.0</strong></div>
 
 # Usage
