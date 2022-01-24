@@ -10,7 +10,7 @@
 # TODOs
 
 - [x] Load commands to run from config file
-- [ ] Create command to manage emote-commands
+- [x] Create command to manage emote-commands
 
 # Future Improvements
 
