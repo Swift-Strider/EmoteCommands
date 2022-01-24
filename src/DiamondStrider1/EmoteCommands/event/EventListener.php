@@ -23,6 +23,7 @@ class EventListener implements Listener
             return;
         }
 
+        $ev->cancel();
         foreach ($entry->getCommands() as $cmd) {
             $this->plugin->getServer()->dispatchCommand(
                 $ev->getPlayer(),
